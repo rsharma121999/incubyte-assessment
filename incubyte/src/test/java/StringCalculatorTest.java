@@ -9,17 +9,17 @@ public class StringCalculatorTest {
 
     @Test
     public void testEmptyString() {
-        assertEquals(0, calculator.Add(""));
+        assertEquals(0, calculator.add(""));
     }
 
     @Test
     public void testSingleNumber() {
-        assertEquals(1, calculator.Add("1"));
+        assertEquals(1, calculator.add("1"));
     }
 
     @Test
     public void testTwoNumbers() {
-        assertEquals(3, calculator.Add("1,2"));
+        assertEquals(3, calculator.add("1,2"));
     }
 }
 

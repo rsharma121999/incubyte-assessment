@@ -2,7 +2,7 @@ package org.example;
 
 public class StringCalculator {
 
-    public int Add(String numbers) {
+    public int add(String numbers) {
         if (numbers.isEmpty()) {
             return 0;
         }
@@ -14,5 +14,6 @@ public class StringCalculator {
         }
         return sum;
     }
+
 }
 
