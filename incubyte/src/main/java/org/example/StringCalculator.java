@@ -7,9 +7,14 @@ public class StringCalculator {
             return 0;
         }
 
-        numbers = numbers.replace("\n", ",");
-        String[] numArray = numbers.split(",");
+        String delimiter = ",|\n";
+        if (numbers.startsWith("//")) {
+            int delimiterEndIndex = numbers.indexOf("\n");
+            delimiter = numbers.substring(2, delimiterEndIndex);
+            numbers = numbers.substring(delimiterEndIndex + 1);
+        }
 
+        String[] numArray = numbers.split(delimiter);
         int sum = 0;
         for (String num : numArray) {
             sum += Integer.parseInt(num.trim());
@@ -17,5 +22,5 @@ public class StringCalculator {
         return sum;
     }
 
-}
 
+}
