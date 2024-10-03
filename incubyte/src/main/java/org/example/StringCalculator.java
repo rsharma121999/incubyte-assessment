@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
 
     public int add(String numbers) {
@@ -7,7 +10,7 @@ public class StringCalculator {
             return 0;
         }
 
-        String delimiter = ",|\n";
+        String delimiter = "[,\n]";
         if (numbers.startsWith("//")) {
             int delimiterEndIndex = numbers.indexOf("\n");
             delimiter = numbers.substring(2, delimiterEndIndex);
@@ -15,12 +18,22 @@ public class StringCalculator {
         }
 
         String[] numArray = numbers.split(delimiter);
+        List<String> negativeNumbers = new ArrayList<>();
         int sum = 0;
+
         for (String num : numArray) {
-            sum += Integer.parseInt(num.trim());
+            int number = Integer.parseInt(num.trim());
+            if (number < 0) {
+                negativeNumbers.add(num);
+            }
+            sum += number;
         }
+
+        if (!negativeNumbers.isEmpty()) {
+            throw new IllegalArgumentException("negative numbers not allowed: " + String.join(", ", negativeNumbers));
+        }
+
         return sum;
     }
-
 
 }
