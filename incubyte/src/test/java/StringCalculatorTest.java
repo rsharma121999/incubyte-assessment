@@ -21,5 +21,11 @@ public class StringCalculatorTest {
     public void testTwoNumbers() {
         assertEquals(3, calculator.add("1,2"));
     }
+
+    @Test
+    public void testMultipleNumbersWithNewLines() {
+        assertEquals(6, calculator.add("1\n2,3"));
+    }
+
 }
 
